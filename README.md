@@ -13,7 +13,7 @@ The files included are:
 The above files and folders have all been uploaded into an S3 bucket,
 which has been configured to support static website hosting. 
 
-
+![image](https://user-images.githubusercontent.com/29081638/205428397-e434c09a-c085-426b-aa6c-dbb743802975.png)
 
 The full configuration steps have been illustrated in the `udacity_screenshots.pdf` file
 
