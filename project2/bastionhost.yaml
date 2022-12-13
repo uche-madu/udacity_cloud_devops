@@ -1,6 +1,9 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: Optional Bastion Host setup to access the private servers for debugging
 Parameters: 
+  EnvironmentName:
+    Description: An environment name that will be prefixed to resources
+    Type: String
   SecurityKey:
     Description: Bastion Host security key
     Type: String
