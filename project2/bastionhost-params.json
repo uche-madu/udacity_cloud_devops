@@ -1,0 +1,22 @@
+[
+    {
+        "ParameterKey": "EnvironmentName",
+        "ParameterValue": "Udagram"
+    },
+    {
+        "ParameterKey": "AMItoUse",
+        "ParameterValue": "ami-061dbd1209944525c"
+    },
+    {
+        "ParameterKey": "EC2InstanceType",
+        "ParameterValue": "t3.small"
+    },
+    {
+        "ParameterKey": "SecurityKey",
+        "ParameterValue": "jumpbox-key"
+    },
+    {
+        "ParameterKey": "MyIPAddress",
+        "ParameterValue": "105.112.18.86/32"
+    }
+]

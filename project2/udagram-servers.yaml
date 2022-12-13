@@ -24,12 +24,6 @@ Parameters:
   S3Bucket:
     Description: S3 bucket containing web files
     Type: String
-  SecurityKey:
-    Description: Bastion Host security key
-    Type: String
-  MyIPAddress:
-    Description: IPAddress of my local machine
-    Type: String
   
 Resources:
   # IAM Role to allow EC2 Session Manager to access the private servers
@@ -215,36 +209,6 @@ Resources:
         Values: [/]
       ListenerArn: !Ref Listener
       Priority: 1
-  
-  # Optional Bastion Host setup to access the private servers for debugging
-  BastionHost:
-    Type: AWS::EC2::Instance
-    Properties:
-      KeyName: !Ref SecurityKey
-      ImageId: !Ref AMItoUse
-      InstanceType: !Ref EC2InstanceType
-      NetworkInterfaces: 
-        - AssociatePublicIpAddress: true
-          DeviceIndex: "0"
-          GroupSet: 
-            - !Ref BastionHostSecurityGroup
-          SubnetId: 
-            Fn::ImportValue: !Sub ${EnvironmentName}-Public1-SN
-      Tags:
-        - Key: Name
-          Value: !Sub ${EnvironmentName}-BastionHost
-  
-  BastionHostSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupDescription: Security Group for Bastion Host
-      VpcId: 
-        Fn::ImportValue: !Sub ${EnvironmentName}-VPCID
-      SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
-          CidrIp: !Ref MyIPAddress
 
 Outputs:
   WebsiteURL:

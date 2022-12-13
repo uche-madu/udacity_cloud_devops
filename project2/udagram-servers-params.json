@@ -34,13 +34,5 @@
     {
         "ParameterKey": "S3Bucket",
         "ParameterValue": "s3://armaniuche"
-    },
-    {
-        "ParameterKey": "SecurityKey",
-        "ParameterValue": "jumpbox-key"
-    },
-    {
-        "ParameterKey": "MyIPAddress",
-        "ParameterValue": "105.112.18.86/32"
     }
 ]
