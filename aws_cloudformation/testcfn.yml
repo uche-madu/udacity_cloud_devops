@@ -1,0 +1,70 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Uche Madu / Udacity - This template deploys a VPC
+Parameters:
+  AMItoUse:
+    Description: AMI to use for our base image
+    Type: String
+Resources: 
+  UdacityDemoVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      Tags:
+        - Key: name
+          Value: myfirsttestvpc
+  UdacityDemoSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: us-east-1a
+      VpcId: !Ref UdacityDemoVPC
+      CidrBlock: 10.0.1.0/20
+      MapPublicIpOnLaunch: true
+  UdacityDemoSG:
+    Type: AWS::EC2::SecurityGroup
+    DependsOn: UdacityDemoVPC
+    Properties:
+      GroupName: udacitySecurityGroup
+      GroupDescription: Allows inbound access on TCP port 80 & 22 and also allows unrestricted outbound access
+      VpcId: !Ref UdacityDemoVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+  UdacityDemoEC2:
+    Type: AWS::EC2::Instance
+    DependsOn: UdacityDemoSG
+    Properties:
+      KeyName: formation_server_key
+      DisableApiTermination: false
+      ImageId: !Ref AMItoUse
+      InstanceType: t3.micro
+      NetworkInterfaces:
+        - DeviceIndex: "0"
+          AssociatePublicIpAddress: true
+          SubnetId: !Ref UdacityDemoSubnet
+          GroupSet:
+            - !Ref UdacityDemoSG
+      UserData:
+        !Base64
+          #!/bin/bash
+          yum update -y
+          yum install -y httpd
+          systemctl start httpd
+          systemctl enable httpd
+      
+  
+  
+
+
+

@@ -1,0 +1,46 @@
+[
+    {
+        "ParameterKey": "EnvironmentName",
+        "ParameterValue": "Udagram"
+    },
+    {
+        "ParameterKey": "AMItoUse",
+        "ParameterValue": "ami-061dbd1209944525c"
+    },
+    {
+        "ParameterKey": "EC2InstanceType",
+        "ParameterValue": "t3.small"
+    },
+    {
+        "ParameterKey": "EC2EBSVolume",
+        "ParameterValue": "10"
+    },
+    {
+        "ParameterKey": "LaunchConfigMaxSize",
+        "ParameterValue": "6"
+    },
+    {
+        "ParameterKey": "LaunchConfigMinSize",
+        "ParameterValue": "4"
+    },
+    {
+        "ParameterKey": "LaunchConfigDesiredSize",
+        "ParameterValue": "4"
+    },
+    {
+        "ParameterKey": "S3ARN",
+        "ParameterValue": "arn:aws:s3:::armaniuche"
+    },
+    {
+        "ParameterKey": "S3Bucket",
+        "ParameterValue": "s3://armaniuche"
+    },
+    {
+        "ParameterKey": "SecurityKey",
+        "ParameterValue": "jumpbox-key"
+    },
+    {
+        "ParameterKey": "MyIPAddress",
+        "ParameterValue": "105.112.18.86/32"
+    }
+]
