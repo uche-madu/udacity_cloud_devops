@@ -1,7 +1,7 @@
 
 # A High-Availability Web App (Udagram) Deployment Using AWS CloudFormation
 
-![udagram-diagram](vscode-remote://wsl%2Bubuntu/home/uchemadu/udacity_cloud_devops/project2/udagram-diagram.png)
+![udagram-diagram](https://github.com/dreemer6/udacity_cloud_devops/blob/main/project2/udagram-diagram.png)
 
 ### Deployment Info:
 * The `create.sh` and  `update.sh` scripts create and update the cloudformation stacks respectively.
