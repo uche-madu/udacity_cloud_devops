@@ -46,3 +46,6 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: !Ref MyIPAddress
+      Tags:
+        - Key: Name
+          Value: !Sub ${EnvironmentName}-BastionHost-SG
