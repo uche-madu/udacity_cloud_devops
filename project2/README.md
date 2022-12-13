@@ -1,6 +1,8 @@
 
 # A High-Availability Web App (Udagram) Deployment Using AWS CloudFormation
 
+![udagram-diagram](vscode-remote://wsl%2Bubuntu/home/uchemadu/udacity_cloud_devops/project2/udagram-diagram.png)
+
 ### Deployment Info:
 * The `create.sh` and  `update.sh` scripts create and update the cloudformation stacks respectively.
 * The `.yaml` files contain the cloudformation code, while the correspondingly named `.json` files contain the template parameters for each stack
