@@ -20,11 +20,12 @@ This assumes that the awscli has been installed and configured with permissions 
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          CidrIp: !Ref MyIPAddress
+          CidrIp: 0.0.0.0/0
 
     ```
 * Save the changes and **update** the `udagramservers` stack with: `./update.sh udagramservers udagram-servers.yaml udagram-servers-params.json`
-* After debugging, remove this code from `udagram-servers.yaml` for security purposes
+* Other stacks can be updated similarly: `./update.sh ...`
+* After debugging, remove this code from `udagram-servers.yaml` for security purposes.
 
 ### Destroying the Deployed Infrastucture
 Stacks must be destroyed in reverse order. Wait for the stack deletion to be complete before deleting the underlying stack. Note that stack resources with dependencies cannot be deleted.
